@@ -3,12 +3,12 @@ import requests
 from bs4 import BeautifulSoup
 import math
 
-FIRST_PAGE = 1 # modify if you don't want to start from the first page
-LAST_PAGE = False # modify only if you don't want to load all pages, else you can provide how many pages you want
+FIRST_PAGE = 1  # modify if you don't want to start from the first page
+LAST_PAGE = 4  # modify only if you don't want to load all pages, else you can provide how many pages you want
 ITEMS_PER_PAGE = 25  # items / page
 # modify this link and after the '&page=' put '{}' because it's a dynamic url
 BASE_LINK = "https://www.zoznam.sk/katalog/Spravodajstvo-informacie/Abecedny-zoznam-firiem/0-9/sekcia.fcgi?sid=1172&so=&page={}&desc=&shops=&kraj=&okres=&cast=&attr="
-BASE_FIRMA_LINK = "https://www.zoznam.sk"   # base link for profiles (do not modify)
+BASE_FIRMA_LINK = "https://www.zoznam.sk"  # base link for profiles (do not modify)
 EXCEL_FILE_NAME = "email_by_name_0_9.xlsx"  # here you must provide the Excel file name
 
 # containers for links and emails
@@ -69,4 +69,3 @@ sheet = workbook.active
 for row_data in ALL_EMAILS:
     sheet.append([str(cell) for cell in row_data])
 workbook.save(EXCEL_FILE_NAME)
-
